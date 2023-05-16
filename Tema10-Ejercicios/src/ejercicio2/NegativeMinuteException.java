@@ -6,7 +6,7 @@ public class NegativeMinuteException extends Exception {
 	 * introducidos no sean válidos
 	 */
 	@Override
-	public String getMessage() {
+	public String toString() {
 		return "Los minutos no pueden ser negativos";
 	}
 }

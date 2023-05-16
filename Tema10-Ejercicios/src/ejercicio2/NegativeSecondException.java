@@ -6,7 +6,7 @@ public class NegativeSecondException extends Exception {
 	 * introducidos no sean válidos
 	 */
 	@Override
-	public String getMessage() {
+	public String toString() {
 		return "Los segundos no pueden ser negativos";
 	}
 }

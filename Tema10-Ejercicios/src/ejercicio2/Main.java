@@ -2,6 +2,10 @@ package ejercicio2;
 
 import java.util.Scanner;
 
+import ejercicio3.NegativeDayException;
+import ejercicio3.NegativeMonthException;
+import ejercicio3.NegativeYearException;
+
 public class Main {
 
 	public static void main(String[] args)
@@ -13,21 +17,23 @@ public class Main {
 		Scanner read = new Scanner(System.in);
 
 		// Objeto, pasando como parámetro al constructor la hora, minutos y segundos
-		Hora objeto = new Hora(23, -59, 40);
+		Hora objeto = new Hora(23, 59, 40);
 
-		// Pedimos los segundos a incrementar
-		System.out.println("Introduce los segundos a incrementar: ");
-		segundosIncre = read.nextInt();
+		// Modificamos la hora, minutos y segundos
+		try {
+			objeto.setHora(1);
+			objeto.setMinutos(1);
+			objeto.setSegundos(-1);
 
-		// Incrementamos un segundo mientras que i sea menor a los segundos a
-		// incrementar
-		for (int i = 0; i < segundosIncre; i++) {
-			// Llamamos al método que incrementa un segundo
-			objeto.incrementaSegundo();
+			// Y si algún dato es incorrecto y se da una excepcion, mostramos el mensaje que
+			// sobreescribimos
+		} catch (NegativeHourException h) {
+			System.out.println(h.toString());
+		} catch (NegativeMinuteException m) {
+			System.out.println(m.toString());
+		} catch (NegativeSecondException s) {
+			System.out.println(s.toString());
 		}
-
-		// Imprimimos la hora, minutos y segundos final
-		System.out.println(objeto.getHora() + " : " + objeto.getMinutos() + " : " + objeto.getSegundos());
 	}
 
 }

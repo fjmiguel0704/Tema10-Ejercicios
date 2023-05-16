@@ -6,7 +6,7 @@ public class NegativeHourException extends Exception {
 	 * sea válida
 	 */
 	@Override
-	public String getMessage() {
+	public String toString() {
 		return "La hora no puede ser negativa";
 	}
 }
